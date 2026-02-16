@@ -1,12 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { Homepage } from './homepage/homepage';
+import { Chatpage } from './chatpage/chatpage';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [Homepage,Chatpage],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('CPE420_FE');
+  currentPage = signal<'home' | 'chat'>('home');
+
+  goToChat() {
+    this.currentPage.set('chat');
+  }
+
+  goToHome() {
+    this.currentPage.set('home');
+  }
 }
