@@ -1,4 +1,4 @@
-import { Component ,Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
@@ -8,7 +8,7 @@ import { Component ,Output, EventEmitter } from '@angular/core';
 })
 export class Homepage {
   @Output() goChat = new EventEmitter<void>();
-   openChat() {
+  openChat() {
     this.goChat.emit();
   }
 }
