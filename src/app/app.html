@@ -1,8 +1,30 @@
-<!-- <app-homepage></app-homepage> -->
-@if (currentPage() === 'home') {
-  <app-homepage (goChat)="goToChat()"></app-homepage>
-}
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <img src="assets/images/lasardar.png" alt="Lasardar Logo" class="logo" style="margin-right: 30px;">
+      
+      <span class="store-name"> Lasardar</span>
+    </div>
+    <div class="navbar-menu">
+      <a 
+        routerLink="/products"
+        routerLinkActive="active"
+        class="nav-link">
+        🛍️ สินค้า
+      </a>
+      <a 
+        routerLink="/inquiry"
+        routerLinkActive="active"
+        class="nav-link">
+        💬 สอบถามข้อมูล
+      </a>
+    </div>
+  </div>
+</nav>
 
-@if (currentPage() === 'chat') {
-  <app-chatpage (goHome)="goToHome()"></app-chatpage>
-}
+<!-- Page Content -->
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>
+

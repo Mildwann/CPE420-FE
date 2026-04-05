@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chatpage',
@@ -15,10 +16,9 @@ export class Chatpage {
 
   constructor(
     private http: HttpClient,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) { }
-
-  @Output() goHome = new EventEmitter<void>();
 
   message: string = '';
   isLoading: boolean = false;
@@ -31,7 +31,7 @@ export class Chatpage {
   ];
 
   back() {
-    this.goHome.emit();
+    this.router.navigate(['/products']);
   }
 
   send() {
@@ -47,6 +47,7 @@ export class Chatpage {
 
     this.message = '';
     this.isLoading = true; // 👈 เริ่มโหลด
+
 
     this.http.post<any>('http://127.0.0.1:8000/api/v1/chat', {
       message: userMessage

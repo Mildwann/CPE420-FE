@@ -1,0 +1,31 @@
+<div class="products-container">
+  <div class="products-header">
+    <h1>สินค้าของเรา</h1>
+    <p>สินค้าคุณภาพดีราคาสตแหน่ง</p>
+  </div>
+
+  <div class="products-grid">
+    @for (product of products(); track product.id) {
+      <div class="product-card">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name" />
+        </div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p class="product-description">{{ product.description }}</p>
+          <div class="product-footer">
+            <span class="product-price">{{ product.price | currency }}</span>
+            <button class="btn-buy">ซื้อ</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="products-footer">
+    <p>ต้องการสอบถามเพิ่มเติม?</p>
+    <button class="btn-inquiry" (click)="goToInquiry()">
+      ติดต่อเรา
+    </button>
+  </div>
+</div>
