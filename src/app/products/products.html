@@ -1,31 +1,44 @@
-<div class="products-container">
-  <div class="products-header">
-    <h1>สินค้าของเรา</h1>
-    <p>สินค้าคุณภาพดีราคาสตแหน่ง</p>
+<div class="page">
+  <div class="hero">
+    <div class="eyebrow">IT HARDWARE STORE</div>
+    <h1>อุปกรณ์<em>คอมพิวเตอร์</em><br>ประสิทธิภาพสูง</h1>
+    <p class="hero-sub">สินค้าคุณภาพดี ราคาสมเหตุสมผล</p>
+    <div class="divider"></div>
   </div>
 
-  <div class="products-grid">
-    @for (product of products(); track product.id) {
-      <div class="product-card">
-        <div class="product-image">
-          <img [src]="product.image" [alt]="product.name" />
+  <div class="grid-wrapper">
+    <div class="grid" id="products-grid">
+
+      @for (product of products(); track product.id) {
+      <div class="card">
+        <div class="card-img">
+          <img [src]="product.image" [alt]="product.name" class="product-image">
         </div>
-        <div class="product-info">
-          <h3>{{ product.name }}</h3>
-          <p class="product-description">{{ product.description }}</p>
-          <div class="product-footer">
-            <span class="product-price">{{ product.price | currency }}</span>
-            <button class="btn-buy">ซื้อ</button>
+        <div class="card-body">
+          <div class="card-name">{{ product.name }}</div>
+          <div class="card-desc">{{ product.description }}</div>
+          <div class="card-footer">
+            <div class="price-wrap">
+              <span class="price-label">ราคา</span>
+              <span class="price">${{ product.price }}</span>
+            </div>
+            <button class="btn-buy">สั่งซื้อ</button>
           </div>
         </div>
       </div>
-    }
+      }
+
+    </div>
   </div>
 
-  <div class="products-footer">
-    <p>ต้องการสอบถามเพิ่มเติม?</p>
-    <button class="btn-inquiry" (click)="goToInquiry()">
-      ติดต่อเรา
-    </button>
+  <div class="footer-section">
+    <div class="footer-card">
+      <p>มีคำถามเพิ่มเติม?</p>
+      <p class="footer-card-sub">ยินดีให้คำปรึกษาทุกวัน ตลอด 24 ชั่วโมง</p>
+
+      <button class="btn-inquiry" (click)="goToInquiry()">
+        ติดต่อเรา &rarr;
+      </button>
+    </div>
   </div>
 </div>
